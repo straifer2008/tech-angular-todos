@@ -1,0 +1,18 @@
+.todoItem {
+  display: grid;
+  grid-column-gap: 10px;
+  align-items: center;
+  grid-template-columns: auto repeat(3, 1fr) auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  @media screen and (max-width: 920px) {
+    grid-template-columns: 1fr;
+  }
+
+  input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,18 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  &_label {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &_detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    @media screen and (max-width: 920px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

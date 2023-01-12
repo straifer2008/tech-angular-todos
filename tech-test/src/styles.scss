@@ -1,1 +1,159 @@
 /* You can add global styles to this file, and also import other style files */
+
+.form {
+  &-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    small {
+      color: red;
+    }
+  }
+
+  &-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &-input {
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}
+$cols: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$breakpoints: ('xs': 600, 'sm': 768, 'md': 920, 'lg': 1180, 'xl': '1920');
+
+.grid {
+  &-col {
+    @each $name in $cols {
+      &-#{$name} {
+        display: grid;
+        grid-template-columns: repeat($name, 1fr);
+      }
+    }
+  }
+
+  &-gap {
+    @each $name in $cols {
+      &-#{$name} {
+        grid-gap: #{$name * 5}px;
+      }
+      &-#{$name}-row {
+        grid-row-gap: #{$name * 5}px;
+      }
+      &-#{$name}-columnn {
+        grid-column-gap: #{$name * 5}px;
+      }
+    }
+  }
+}
+
+.m {
+  @each $name in $cols {
+    &-#{$name} {
+      margin: #{$name * 5}px;
+    }
+
+    &-0 {
+      margin: 0;
+    }
+
+    &-t {
+      &-0 {
+        margin-top: 0;
+      }
+
+      &-#{$name} {
+        margin-top: #{$name * 5}px;
+      }
+    }
+    &-l {
+      &-0 {
+        margin-left: 0;
+      }
+
+      &-#{$name} {
+        margin-left: #{$name * 5}px;
+      }
+    }
+    &-r {
+      &-0 {
+        margin-right: 0;
+      }
+
+      &-#{$name} {
+        margin-right: #{$name * 5}px;
+      }
+    }
+    &-b {
+      &-0 {
+        margin-bottom: 0;
+      }
+
+      &-#{$name} {
+        margin-bottom: #{$name * 5}px;
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  &.direction {
+    &-col {
+      flex-direction: column;
+    }
+
+    &-row {
+      flex-direction: row;
+    }
+  }
+
+  &.justify {
+    &-center {
+      justify-content: center;
+    }
+    &-start {
+      justify-content: flex-start;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-between {
+      justify-content: space-between;
+    }
+  }
+
+  &.align {
+    &-center {
+      align-items: center;
+    }
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+  }
+}
+
+.btn {
+  width: auto;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: #008cba;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  &.error {
+    background-color: #bb260d;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="todoItem">
+  <div class="flex justify-center">
+    <input type="checkbox" (change)="updateStatus()" [checked]="todo?.done">
+  </div>
+  <p>{{todo?.label}}</p>
+  <p>{{todo?.description}}</p>
+  <p>{{todo?.category}}</p>
+
+  <div class="flex justify-end">
+    <button class="btn error m-r-3" (click)="deleteTodo(todo.id)">delete</button>
+    <a class="btn" [routerLink]="[todo.id]">details</a>
+  </div>
+</div>

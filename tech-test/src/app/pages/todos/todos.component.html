@@ -1,0 +1,12 @@
+<app-todo-form (createTodo)="createTodo($event)"></app-todo-form>
+
+<div *ngIf="todos?.length; else noData">
+  <app-todo-item
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (delete)="deleteTodo($event)"
+    (update)="updateTodo($event)"
+  ></app-todo-item>
+</div>
+
+<ng-template #noData><h1>have no data yet</h1></ng-template>

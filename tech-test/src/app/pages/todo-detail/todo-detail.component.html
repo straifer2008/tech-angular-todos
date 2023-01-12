@@ -1,0 +1,36 @@
+<form class="todo" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 class="toto_label">{{todo?.label}}</h2>
+
+  <div class="todo_detail">
+    <div class="form-control">
+      <label class="form-label">label</label>
+      <input class="form-input" type="text" formControlName="label">
+      <small *ngIf="form.controls['label'].invalid && form.controls['label'].touched">
+        Required
+      </small>
+    </div>
+    <div class="form-control">
+      <label class="form-label">description</label>
+      <input class="form-input" type="text" formControlName="description">
+      <small *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+        Required
+      </small>
+    </div>
+    <div class="form-control">
+      <label class="form-label">category</label>
+      <input class="form-input" type="text" formControlName="category">
+      <small *ngIf="form.controls['category'].invalid && form.controls['category'].touched">
+        Required
+      </small>
+    </div>
+    <div class="flex align-center">
+      <label class="form-label m-b-0 m-r-3">Is done</label>
+      <input class="form-input" type="checkbox" formControlName="done">
+    </div>
+  </div>
+
+  <div class="grid-col-2 grid-gap-10 m-t-10">
+    <div class="flex justify-start"><a class="btn error" type="button" routerLink="/">Back</a></div>
+    <div class="flex justify-end"><button class="btn" type="submit">Update</button></div>
+  </div>
+</form>

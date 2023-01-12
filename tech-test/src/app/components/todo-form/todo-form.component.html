@@ -1,0 +1,36 @@
+<button class="form_btn m-b-10" (click)="isOpen = true">Add</button>
+
+<div class="modal" *ngIf="isOpen">
+  <div class="modal_bg" (click)="isOpen = false"></div>
+
+  <form class="modal_container" [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <div class="modal_head"></div>
+    <div class="modal_body">
+      <div class="form-control">
+        <label class="form-label">label</label>
+        <input class="form-input" type="text" formControlName="label">
+        <small *ngIf="form.controls['label'].invalid && form.controls['label'].touched">
+          Required
+        </small>
+      </div>
+      <div class="form-control">
+        <label class="form-label">description</label>
+        <input class="form-input" type="text" formControlName="description">
+        <small *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+          Required
+        </small>
+      </div>
+      <div class="form-control">
+        <label class="form-label">category</label>
+        <input class="form-input" type="text" formControlName="category">
+        <small *ngIf="form.controls['category'].invalid && form.controls['category'].touched">
+          Required
+        </small>
+      </div>
+    </div>
+    <div class="modal_footer">
+      <button class="form_btn error" type="button" (click)="isOpen = false">close</button>
+      <button class="form_btn" type="submit">ok</button>
+    </div>
+  </form>
+</div>
